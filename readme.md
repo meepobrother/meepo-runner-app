@@ -1,3 +1,8 @@
+## 技术栈
+
+- ionic,cordova,angular,php,mysql
+
+
 ```
 *****************  WARNING WARNING WARNING  *****************
 * 存储在您的密钥库中的信息的完整性  *
