@@ -1,0 +1,13 @@
+bmap-container {
+    width: 100%;
+    height: 100%;
+    display: block;
+    #bmap {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    img {
+        max-width: none;
+    }
+}

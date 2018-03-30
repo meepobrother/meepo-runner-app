@@ -1,0 +1,21 @@
+<ion-header no-border>
+  <ion-navbar color="primary" (click)="cancel()">
+    <ion-title>注册</ion-title>
+    <ion-buttons end (click)="cancel()">
+      <ion-button color="light" (click)="cancel()" clear>
+        暂时不填
+      </ion-button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="content">
+    <ion-icon class="phone" name="phone-portrait"></ion-icon>
+    <h2 class="title">请输入手机号</h2>
+    <p>为方便公司联系您，请输入手机号</p>
+  </div>
+  <mobile-input (onChange)="mobileChange($event)"></mobile-input>
+  <div class="content">
+    <button ion-button clear (click)="next()">下一步</button>
+  </div>
+</ion-content>

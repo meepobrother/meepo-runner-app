@@ -1,0 +1,21 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-title>我的消息</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let item of list">
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="item.icon">
+      </ion-avatar>
+      <ion-label>{{item.title}}</ion-label>
+    </ion-item>
+    <ion-card-content>
+      {{item.content}}
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="list.length === 0" class="empty">
+    <p>暂无数据</p>
+  </div>
+</ion-content>

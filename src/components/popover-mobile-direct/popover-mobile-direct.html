@@ -1,0 +1,10 @@
+<!-- <ion-searchbar placeholder="轻点此处搜索" (ionInput)="getItems($event)"></ion-searchbar> -->
+<ion-item-group radio-group [ngModel]="data" (ionChange)="change($event)">
+  <div *ngFor="let item of list">
+    <ion-item-divider color="light">{{item.title}}</ion-item-divider>
+    <ion-item *ngFor="let it of item.items">
+      <ion-label>{{it.title}}</ion-label>
+      <ion-radio [value]="it.value"></ion-radio>
+    </ion-item>
+  </div>
+</ion-item-group>

@@ -1,0 +1,17 @@
+<ion-header no-border>
+  <ion-navbar color="transparent"></ion-navbar>
+</ion-header>
+<ion-content padding [formGroup]="form">
+  <div class="content">
+      <ion-icon class="phone" name="phone-portrait"></ion-icon>
+      <h2 class="title">
+        请输入验证码
+      </h2>
+      <div class="info">
+        {{mobile?.pre}}&nbsp;{{mobile?.mobile}} <button small ion-button clear>{{btnTitle}}</button> 没收到？
+      </div>
+  </div>
+  <div class="content">
+    <input type="tel" formControlName="code" placeholder="4位验证码">
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-navbar color="primary" hideBackButton="false">
+    <ion-buttons start>
+      <button color="light" ion-button clear menuToggle>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      钱包
+    </ion-title>
+    <ion-buttons end>
+      <button color="light" (click)="toMessage()" ion-button clear>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="empty">
+    <p>登录后使用</p>
+    <button ion-button outline small (click)="login()">去登录</button>
+  </div>
+</ion-content>

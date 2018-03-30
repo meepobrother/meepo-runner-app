@@ -1,0 +1,47 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button color="light" clear ion-button (click)="cancel()">取消</button>
+    </ion-buttons>
+    <ion-title>我的信息</ion-title>
+    <ion-buttons end>
+      <button clear color="light" ion-button (click)="save()">完成</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [formGroup]="user.form">
+  <ion-list>
+    <button ion-item (click)="uploadAvatar()">
+      <ion-avatar item-start >
+        <img [src]="user.userinfo.avatar">
+      </ion-avatar>
+      <h2>头像</h2>
+      <p>点击可以修改</p>
+    </button>
+    <ion-item>
+      <ion-label>姓名</ion-label>
+      <ion-input formControlName="realname" placeholder="请输入您的姓名"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>身份证号</ion-label>
+      <ion-input formControlName="cardnum" placeholder="请输入您的身份证号"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>昵称</ion-label>
+      <ion-input formControlName="nickname" placeholder="请输入您的昵称"></ion-input>
+    </ion-item>
+    <!-- 性别 -->
+    <ion-item>
+      <ion-label>性别</ion-label>
+      <ion-select formControlName="sex" cancelText="取消" okText="确定">
+        <ion-option value="0">保密</ion-option>
+        <ion-option value="1">男</ion-option>
+        <ion-option value="2">女</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>个性签名</ion-label>
+      <ion-input formControlName="sign" placeholder="请输入您的个性签名"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

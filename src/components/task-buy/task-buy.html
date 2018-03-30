@@ -1,0 +1,45 @@
+<ion-item>
+  <ion-avatar item-left *ngIf="task?.avatar">
+    <img [src]="task?.avatar">
+  </ion-avatar>
+  <ion-label>
+    <button ion-button clear small outline>{{task?.getType(item.send_type)}}</button>
+    <button ion-button clear small outline color="danger">{{item?.runner_money}}元</button>
+  </ion-label>
+  <button ion-button clear color="dark" (click)="toDetail(item)" item-right icon-right>
+    {{getStatusTitle(item.status)}}
+    <ion-icon name="arrow-forward" color="dark"></ion-icon>
+  </button>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="dark" name="time" item-left></ion-icon>
+  <ion-label *ngIf="item?.subscribe_type == 1">
+    预约:{{item.subscribe_time}}
+  </ion-label>
+  <ion-label *ngIf="item?.subscribe_type == 0">立即开始</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="start" name="cloud-upload" item-left></ion-icon>
+  <ion-label text-wrap>购买地址：{{item?.from_address}}{{item?.from_usernote}}</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
+  <ion-label text-wrap>收货地址：{{item?.to_address}}{{item?.to_usernote}}</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="gray" name="cart" item-left></ion-icon>
+  <ion-label text-wrap>[{{item?.goods_type || '一般物品'}}]{{item?.goods_name || ''}}</ion-label>
+  <ion-badge *ngIf="item?.goods_needpay">垫付：{{item?.goods_price}}元</ion-badge>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="gray" name="car" item-left></ion-icon>
+  <ion-label *ngIf="item?.goods_weight">重量：{{item?.goods_weight > 0 ? item?.goods_weight+'公斤内' : '未填写'}}</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="gray" name="chatboxes" item-left></ion-icon>
+  <ion-label text-wrap>购买要求：{{item?.note}}</ion-label>
+  <button outline color="danger" *ngIf="task.isMine(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{task.getMineBtnTitle(item?.status)}}</button>
+  <button outline color="danger" *ngIf="task.isMine(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>加价</button>
+  <button outline color="danger" *ngIf="task.isMineRecive(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{getBtnTitle(item?.status)}}</button>
+  <button outline color="danger" *ngIf="task.isFree(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{task.getFreeBtnTitle(item?.status)}}</button>
+</ion-item>

@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-navbar color="primary" hideBackButton="false">
+    <ion-buttons start>
+      <button color="light" ion-button clear menuToggle>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <button color="light" ion-button clear icon-right>
+        杭州市
+        <ion-icon name="arrow-down"></ion-icon>
+      </button>
+    </ion-title>
+    <ion-buttons end>
+      <button color="light" (click)="toIndex()" ion-button clear>
+        <ion-icon name="keypad"></ion-icon>
+      </button>
+      <button color="light" (click)="toMessage()" ion-button clear>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <bmap-container #bmap>
+    <bmap-task *ngFor="let item of list" [task]="item"></bmap-task>
+  </bmap-container>
+</ion-content>

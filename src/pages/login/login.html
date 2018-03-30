@@ -1,0 +1,24 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button color="light" ion-button (click)="cancel()" clear>
+        取消
+      </button>
+    </ion-buttons>
+    <ion-title>登录</ion-title>
+    <ion-buttons end>
+      <button color="light" ion-button clear (click)="register()">注册</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="content">
+    <ion-icon class="phone" name="phone-portrait"></ion-icon>
+    <h2 class="title">请输入手机号</h2>
+    <p>请输入，您注册时的手机号</p>
+  </div>
+  <mobile-input (onChange)="mobileChange($event)"></mobile-input>
+  <div class="content">
+    <button ion-button clear (click)="next()">下一步</button>
+  </div>
+</ion-content>

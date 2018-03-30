@@ -1,0 +1,40 @@
+<ion-menu [content]="content">
+    <ion-content>
+        <div style="background-color: #488aff;" class="avatar" (click)="login()">
+            <ion-avatar item-left>
+                <img style="width:44px;height: 44px;border-radius: 50%;" [src]="user.userinfo.avatar">
+            </ion-avatar>
+            <div class="info" style="color: #fff;">
+                <ion-label item-left>{{user.userinfo?.realname || '游客，点击登录'}}</ion-label>
+                <p>{{user.userinfo?.mobile || ''}}</p>
+            </div>
+        </div>
+        <ion-list no-border>
+            <button ion-item (click)="goPage('BmapPage')">
+                <ion-icon small color="primary" item-start name="map"></ion-icon>
+                地图
+            </button>
+            <button ion-item (click)="goPage('IndexPage')">
+                <ion-icon small color="primary" item-start name="bookmarks"></ion-icon>
+                任务
+            </button>
+            <button ion-item (click)="goPage('MoneyPage')">
+                <ion-icon small color="primary" item-start name="card"></ion-icon>
+                钱包
+            </button>
+            <button ion-item (click)="goPage('KefuPage')">
+                <ion-icon small color="primary" name="chatbubbles" item-start></ion-icon>
+                客服
+            </button>
+            <button ion-item (click)="goPage('SettingPage')">
+                <ion-icon small color="primary" name="settings" item-start></ion-icon>
+                设置
+            </button>
+            <button *ngIf="user.checkLogin()" ion-item (click)="user.logout()">
+                <ion-icon small color="primary" name="log-out" item-start></ion-icon>
+                退出
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>

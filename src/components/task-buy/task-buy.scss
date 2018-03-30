@@ -1,0 +1,22 @@
+task-buy {
+    .mepo_item {
+        min-height: 2.4rem;
+        ion-icon {
+            font-size: 1.5rem;
+            min-height: 1.5rem;
+        }
+    }
+    .label-ios,
+    .label-md {
+        margin: 3px 5px 3px 0;
+        font-size: 1rem;
+        color: gray;
+    }
+    .button-small-ios,
+    .button-small-md,
+    {
+        height: 1.5em;
+        font-size: .9rem;
+        padding: 0 0.3em;
+    }
+}

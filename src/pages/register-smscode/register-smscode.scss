@@ -1,0 +1,27 @@
+page-register-smscode {
+    .content {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        ion-icon.phone {
+            font-size: 80px;
+        }
+    }
+    .info{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
+        font-size: 20px;
+        background-color: transparent;
+        border: none;
+        line-height: 44px;
+        width: 200px;
+        text-align: center;
+    }
+}

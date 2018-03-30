@@ -1,0 +1,57 @@
+<ion-header no-border>
+  <ion-navbar color="primary" hideBackButton="false">
+    <ion-buttons start>
+      <button color="light" ion-button clear menuToggle>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      设置
+    </ion-title>
+    <ion-buttons end>
+      <button color="light" (click)="toMessage()" ion-button clear>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-item-group *ngIf="user.checkLogin()">
+    <ion-item-divider>开关设置</ion-item-divider>
+    <ion-item>
+      <ion-label>上班接单</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>接受派单</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>任务提醒</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group *ngIf="user.checkLogin()">
+    <ion-item-divider>派单任务类型</ion-item-divider>
+    <ion-item>
+      <ion-label>帮我买</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>帮我送</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>帮我取</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>帮排队</ion-label>
+      <ion-toggle checked="false"></ion-toggle>
+    </ion-item>
+  </ion-item-group>
+  <div class="empty" *ngIf="!user.checkLogin()">
+    <p>登录后设置</p>
+    <button ion-button outline small (click)="login()">去登录</button>
+  </div>
+</ion-content>

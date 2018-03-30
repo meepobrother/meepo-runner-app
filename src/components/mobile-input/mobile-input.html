@@ -1,0 +1,7 @@
+<div class="mobile-input-container" [formGroup]="form">
+  <button (click)="selectDirect($event)" clear ion-button icon-right>
+    {{form.get('pre').value}}
+    <ion-icon name="arrow-forward"></ion-icon>
+  </button>
+  <input type="tel" formControlName="mobile" placeholder="请输入您的手机号码">
+</div>

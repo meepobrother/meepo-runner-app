@@ -1,0 +1,23 @@
+page-index {
+    .segment-button {
+        height: 44px !important;
+        line-height: 44px !important;
+        border: none !important;
+        flex: 1 !important;
+        max-width: 100% !important;
+        &:first-of-type {
+            border-top-left-radius: 0px !important;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0px !important;
+            margin-right: 0;
+        }
+    }
+    .empty {
+        height: 200px;
+        line-height: 200px;
+        font-size: 20px;
+        color: gray;
+        text-align: center;
+    }
+}

@@ -1,0 +1,40 @@
+<ion-item>
+  <ion-avatar item-left *ngIf="task?.avatar">
+    <img [src]="task?.avatar">
+  </ion-avatar>
+  <ion-label>
+    <button ion-button clear small outline>{{task?.getType(item.send_type)}}</button>
+    <button ion-button clear small outline color="danger">{{item?.runner_money}}元</button>
+  </ion-label>
+  <button ion-button clear color="dark" item-right icon-right (click)="toDetail(item)">
+    {{getStatusTitle(item.status)}}
+    <ion-icon name="arrow-forward" color="dark"></ion-icon>
+  </button>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="dark" name="time" item-left></ion-icon>
+  <ion-label *ngIf="item?.subscribe_type == 1">
+    预约:{{item.subscribe_time}}
+  </ion-label>
+  <ion-label *ngIf="item?.subscribe_type == 0">立即开始</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
+  <ion-label text-wrap>排队地址：{{item?.to_address}}{{item?.to_usernote}}</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
+  <ion-label text-wrap>排队地址：{{item?.to_address}}{{item?.to_usernote}}</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
+  <ion-label text-wrap>排队时长：{{item?.subscribe_time_long}}</ion-label>
+</ion-item>
+<ion-item class="mepo_item">
+  <ion-icon color="gray" name="chatboxes" item-left></ion-icon>
+  <ion-label text-wrap>备注信息:{{item?.note}}</ion-label>
+  <button outline color="danger" *ngIf="task.isMine(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{task.getMineBtnTitle(item?.status)}}</button>
+  <button outline color="danger" *ngIf="task.isMine(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>加价</button>
+  <button outline color="danger" *ngIf="task.isMineRecive(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{getBtnTitle(item?.status)}}</button>
+  <button outline color="danger" *ngIf="task.isFree(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{task.getFreeBtnTitle(item?.status)}}</button>
+</ion-item>

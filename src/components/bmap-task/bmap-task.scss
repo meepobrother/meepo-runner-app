@@ -1,0 +1,56 @@
+bmap-task {}
+
+.bmap-task {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 1px #ccc;
+    .avatar {
+        padding: 0 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+            height: 18px;
+        }
+    }
+    .label {
+        flex: 1;
+        padding: 0 10px;
+        line-height: 22px;
+        color: red;
+        white-space: normal;
+    }
+}
+
+.bmap-task-item {
+    position: absolute;
+    margin: 0pt;
+    padding: 0pt;
+    width: auto;
+    height: 36px;
+    left: -10px;
+    top: -35px;
+    &:before {
+        content: " ";
+        position: absolute;
+        bottom: 5px;
+        left: -20px;
+        z-index: 9;
+        width: 0;
+        height: 0;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent #fff transparent transparent;
+    }
+    ion-avatar {
+        padding: 0 3px !important;
+        margin: 0px !important;
+    }
+    .item-block {
+        position: relative;
+        overflow: auto;
+    }
+}

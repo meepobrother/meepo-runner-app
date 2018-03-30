@@ -1,0 +1,12 @@
+page-login {
+    .content {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        ion-icon.phone {
+            font-size: 80px;
+        }
+    }
+}

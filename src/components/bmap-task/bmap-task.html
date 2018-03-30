@@ -1,0 +1,21 @@
+<!-- <div class="bmap-task" #tpl>
+  <div class="avatar">
+    <img [src]="'assets/imgs/task.buy.png'">
+  </div>
+  <label text-wrap class="label">
+    ￥{{task?.runner_money}}
+  </label>
+</div> -->
+
+<div class="bmap-task-item" #tpl>
+  <ion-card style="margin: 0px;padding: 0px;width: 100%;">
+    <ion-card-header ion-item>
+      <ion-avatar item-left>
+        <img [src]="'assets/imgs/task.buy.png'">
+      </ion-avatar>
+      <ion-label style="min-width: 100%;" text-nowrap>
+        {{task.title}} ￥{{task.runner_money}}
+      </ion-label>
+    </ion-card-header>
+  </ion-card>
+</div>

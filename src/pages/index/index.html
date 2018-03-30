@@ -1,0 +1,60 @@
+<ion-header no-border>
+  <ion-navbar color="primary" hideBackButton="false">
+    <ion-buttons start>
+      <button color="light" ion-button clear menuToggle>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      <button color="light" ion-button clear icon-right>
+        杭州市
+        <ion-icon name="arrow-down"></ion-icon>
+      </button>
+    </ion-title>
+    <ion-buttons end>
+      <button color="light" (click)="toBmap()" ion-button clear>
+        <ion-icon name="map"></ion-icon>
+      </button>
+      <button color="light" (click)="toMessage()" ion-button clear>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of list">
+    <task-buy (onDetail)="toDetail(item)" [item]="item" *ngIf="item.send_type == '1'"></task-buy>
+    <task-send (onDetail)="toDetail(item)" [item]="item" *ngIf="item.send_type == '2'"></task-send>
+    <task-take (onDetail)="toDetail(item)" [item]="item" *ngIf="item.send_type == '3'"></task-take>
+    <task-take-order (onDetail)="toDetail(item)" [item]="item" *ngIf="item.send_type == '4'"></task-take-order>
+  </ion-card>
+  <div *ngIf="list.length===0" class="empty">
+    <p>暂无数据</p>
+  </div>
+  <ion-fab bottom right #fab>
+    <button ion-fab>
+      {{title}}
+    </button>
+    <ion-fab-list side="top">
+      <button ion-fab color="primary" (click)="changeType('4','排队')">排队</button>
+      <button ion-fab color="primary" (click)="changeType('3','帮取')">帮取</button>
+      <button ion-fab color="primary" (click)="changeType('2','帮送')">帮送</button>
+      <button ion-fab color="primary" (click)="changeType('1','帮买')">帮买</button>
+      <button ion-fab color="primary" (click)="changeType('-1','全部')">全部</button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-segment (ionChange)="changePageType($event)" [(ngModel)]="params.opt" color="primary">
+      <ion-segment-button value="all">
+        大厅
+      </ion-segment-button>
+      <ion-segment-button value="mine">
+        我的
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
