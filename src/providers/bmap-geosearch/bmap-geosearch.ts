@@ -1,27 +1,21 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { UrlProvider } from "../url/url";
 
-/*
-  Generated class for the BmapGeosearchProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class BmapGeosearchProvider {
-
-  constructor(public http: HttpClient) {
-    console.log('Hello BmapGeosearchProvider Provider');
+  constructor(public http: HttpClient, private url: UrlProvider) {
+    console.log("Hello BmapGeosearchProvider Provider");
   }
 
-  local() {
-
+  local(params = {}) {
+    let url = this.url.getOpenUrl("tasks/local", params);
+    return this.http.get(url);
   }
 
-  bound() { }
+  bound() {}
 
-  nearby() { }
+  nearby() {}
 
-  detail() { }
-
+  detail() {}
 }

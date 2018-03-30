@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TasksProvider } from '../../providers/tasks/tasks';
 import { ToastProvider } from '../../providers/toast/toast';
 import { NavController } from 'ionic-angular';
+import { BmapProvider } from '../../providers/bmap/bmap';
+import { TaskDriverProvider } from '../../providers/task-driver/task-driver';
 
 @Component({
   selector: 'task-send',
@@ -19,10 +21,14 @@ export class TaskSendComponent {
     });
   }
   @Input() item: any = {};
+
+  @Input() isDetail: boolean = false;
   constructor(
     public task: TasksProvider,
     private toast: ToastProvider,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public bmap: BmapProvider,
+    public taskDriver: TaskDriverProvider
   ) { }
 
   ngOnInit() {
@@ -99,6 +105,13 @@ export class TaskSendComponent {
   @Output() onDetail: EventEmitter<any> = new EventEmitter();
   toDetail(item: any) {
     this.onDetail.emit(item);
+  }
+
+  // 可用
+  isDisable(index, status) {
+    status = parseInt(status);
+    let result = status === index;
+    return result;
   }
 
 }

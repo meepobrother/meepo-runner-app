@@ -44,17 +44,5 @@
       <button ion-fab color="primary" (click)="changeType('-1','全部')">全部</button>
     </ion-fab-list>
   </ion-fab>
+  <div style="height: 50px;"></div>
 </ion-content>
-
-<ion-footer no-border>
-  <ion-toolbar>
-    <ion-segment (ionChange)="changePageType($event)" [(ngModel)]="params.opt" color="primary">
-      <ion-segment-button value="all">
-        大厅
-      </ion-segment-button>
-      <ion-segment-button value="mine">
-        我的
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
-</ion-footer>

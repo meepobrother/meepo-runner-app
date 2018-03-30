@@ -1,16 +1,19 @@
-<ion-header no-border color="transparent">
-  <ion-navbar class="meepo-light">
-    <ion-title style="color: #fff;">任务详情</ion-title>
+<ion-header no-border >
+  <ion-navbar color="primary">
+    <ion-title>任务详情</ion-title>
+    <ion-buttons end>
+      <button ion-button clear>投诉举报</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content>
   <bmap-sigle></bmap-sigle>
   <div class="task-info">
     <ion-card>
-        <task-buy [id]="id" *ngIf="send_type == '1'"></task-buy>
-        <task-send [id]="id" *ngIf="send_type == '2'"></task-send>
-        <task-take [id]="id" *ngIf="send_type == '3'"></task-take>
-        <task-take-order [id]="id" *ngIf="send_type == '4'"></task-take-order>
+      <task-buy [id]="id" [isDetail]="true" *ngIf="send_type == '1'"></task-buy>
+      <task-send [id]="id" [isDetail]="true" *ngIf="send_type == '2'"></task-send>
+      <task-take [id]="id" [isDetail]="true" *ngIf="send_type == '3'"></task-take>
+      <task-take-order [id]="id" [isDetail]="true" *ngIf="send_type == '4'"></task-take-order>
     </ion-card>
   </div>
 </ion-content>

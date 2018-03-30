@@ -19,4 +19,13 @@ task-send {
         font-size: .9rem;
         padding: 0 0.3em;
     }
+    ion-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        button {
+            flex: 1;
+            min-height: 22px;
+        }
+    }
 }

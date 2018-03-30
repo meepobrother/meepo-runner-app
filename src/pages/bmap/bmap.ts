@@ -30,13 +30,7 @@ export class BmapPage {
     });
   }
 
-  ionViewDidEnter() {
-    this.bmapCtrl.getCurrentPosition().then(res => {
-      console.log(res);
-    }).catch(err => {
-      console.log(err);
-    });
-  }
+  ionViewDidEnter() {}
 
   ngAfterContentInit() { }
 

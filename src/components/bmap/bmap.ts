@@ -1,5 +1,6 @@
 import { Component, Input, ContentChildren, QueryList, AfterContentInit } from '@angular/core';
 import { BmapTaskComponent } from '../bmap-task/bmap-task';
+import { BmapProvider } from '../../providers/bmap/bmap';
 declare const BMap: any;
 declare const BMAP_STATUS_SUCCESS: any;
 @Component({
@@ -14,7 +15,9 @@ export class BmapComponent {
   map: any;
 
   @ContentChildren(BmapTaskComponent) tasks: QueryList<BmapTaskComponent>;
-  constructor() { }
+  constructor(
+    private bmap: BmapProvider
+  ) { }
 
   ngOnInit() {
     this.map = new BMap.Map("bmap");
@@ -25,6 +28,7 @@ export class BmapComponent {
       point = new BMap.Point(location.lng, location.lat);
     }
     this.map.centerAndZoom(point, 18);
+    this.bmap.setBmap(this.map);
   }
 
   renderTaskToMap() {

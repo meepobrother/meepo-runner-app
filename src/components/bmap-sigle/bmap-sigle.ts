@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BmapProvider } from '../../providers/bmap/bmap';
 declare const BMap: any;
 @Component({
   selector: 'bmap-sigle',
@@ -8,7 +9,9 @@ export class BmapSigleComponent {
 
   map: any;
 
-  constructor() { }
+  constructor(
+    private bmap: BmapProvider
+  ) { }
 
   ngOnInit() {
     this.map = new BMap.Map("bmap2");
@@ -19,17 +22,9 @@ export class BmapSigleComponent {
       point = new BMap.Point(location.lng, location.lat);
     }
     this.map.centerAndZoom(point, 15);
-    this.router();
+    this.bmap.setBmap(this.map);
   }
 
-  router() {
-    var driving = new BMap.DrivingRoute(this.map, {
-      renderOptions: {
-        map: this.map,
-        autoViewport: true
-      }
-    });
-    driving.search("天坛公园", "故宫");
-  }
+  router() {}
 
 }

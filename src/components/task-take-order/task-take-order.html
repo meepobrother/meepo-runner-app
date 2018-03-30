@@ -3,13 +3,13 @@
     <img [src]="task?.avatar">
   </ion-avatar>
   <ion-label>
-    <button ion-button clear small outline>{{task?.getType(item.send_type)}}</button>
+    <button ion-button clear small outline>{{item?.title}}</button>
     <button ion-button clear small outline color="danger">{{item?.runner_money}}元</button>
+    <button ion-button clear small color="dark" item-right icon-right (click)="toDetail(item)">
+      {{getStatusTitle(item.status)}}
+      <ion-icon name="arrow-forward" color="dark"></ion-icon>
+    </button>
   </ion-label>
-  <button ion-button clear color="dark" item-right icon-right (click)="toDetail(item)">
-    {{getStatusTitle(item.status)}}
-    <ion-icon name="arrow-forward" color="dark"></ion-icon>
-  </button>
 </ion-item>
 <ion-item class="mepo_item">
   <ion-icon color="dark" name="time" item-left></ion-icon>
@@ -20,21 +20,44 @@
 </ion-item>
 <ion-item class="mepo_item">
   <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
-  <ion-label text-wrap>排队地址：{{item?.to_address}}{{item?.to_usernote}}</ion-label>
+  <ion-label text-wrap>排队地址：{{item?.to_address}}</ion-label>
 </ion-item>
-<ion-item class="mepo_item">
-  <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
-  <ion-label text-wrap>排队地址：{{item?.to_address}}{{item?.to_usernote}}</ion-label>
-</ion-item>
-<ion-item class="mepo_item">
-  <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
-  <ion-label text-wrap>排队时长：{{item?.subscribe_time_long}}</ion-label>
-</ion-item>
+
+<div *ngIf="isDetail">
+  <ion-item class="mepo_item">
+    <ion-icon color="danger" name="cloud-download" item-left></ion-icon>
+    <ion-label text-wrap>排队时长：{{item?.subscribe_time_long}}</ion-label>
+  </ion-item>
+</div>
+
 <ion-item class="mepo_item">
   <ion-icon color="gray" name="chatboxes" item-left></ion-icon>
   <ion-label text-wrap>备注信息:{{item?.note}}</ion-label>
-  <button outline color="danger" *ngIf="task.isMine(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{task.getMineBtnTitle(item?.status)}}</button>
-  <button outline color="danger" *ngIf="task.isMine(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>加价</button>
-  <button outline color="danger" *ngIf="task.isMineRecive(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{getBtnTitle(item?.status)}}</button>
-  <button outline color="danger" *ngIf="task.isFree(item)" (click)="task.handler(item, navCtrl)" ion-button item-right>{{task.getFreeBtnTitle(item?.status)}}</button>
+  <button outline color="danger" *ngIf="item.status == 0" (click)="task.reciveTask(item)" ion-button item-right>立即接单</button>
 </ion-item>
+
+<ion-item class="optBtn" *ngIf="isDetail">
+  <ion-buttons item-right>
+    <!-- 0 -->
+    <button ion-button outline small (click)="task.reciveTask(item)" [disabled]="!isDisable(0,item.status)">接单</button>
+    <!-- 1 -->
+    <button ion-button outline small  (click)="taskDriver.step1(item)" [disabled]="!isDisable(1,item.status)">去排队</button>
+    <!-- 2 -->
+    <button ion-button outline small  (click)="taskDriver.step2(item)" [disabled]="!isDisable(2,item.status)">开始</button>
+    <!-- 3 -->
+    <button ion-button outline small  (click)="taskDriver.step3(item)" [disabled]="!isDisable(3,item.status)">结束</button>
+    <!-- 4 -->
+    <!-- <button ion-button outline small disabled>用户确认并支付</button> -->
+    <!-- 5 -->
+    <button ion-button outline small disabled  (click)="taskDriver.step4(item)" [disabled]="!isDisable(5,item.status)">评价</button>
+  </ion-buttons>
+</ion-item>
+
+<ion-fab *ngIf="isDetail" top right #fab>
+  <button ion-fab>
+    导航
+  </button>
+  <ion-fab-list side="bottom">
+    <button ion-fab color="primary" (click)="bmap.routerEnd(item)">排队</button>
+  </ion-fab-list>
+</ion-fab>
