@@ -5,21 +5,21 @@ $list-ios-margin-top: 0px;
 $list-ios-margin-bottom: 10px;
 $list-ios-margin-right: 0px;
 $list-ios-margin-left: 0px;
-$item-ios-body-text-font-size: 1.2rem;
-$item-ios-paragraph-font-size: 1rem;
+$item-ios-body-text-font-size: 1.6rem;
+$item-ios-paragraph-font-size: 1.2rem;
 $item-ios-avatar-size: 22px;
 $item-ios-thumbnail-size: 36px;
 
-$item-ios-padding-top: 3px;
-$item-ios-padding-bottom: 3px;
+$item-ios-padding-top: 5px;
+$item-ios-padding-bottom: 5px;
 
 $item-ios-padding-left: 5px;
 $item-ios-padding-right: 5px;
-$item-ios-padding-icon-top: 3px;
-$item-ios-padding-icon-bottom: 3px;
-$font-size-base: 1.1rem;
+$item-ios-padding-icon-top: 5px;
+$item-ios-padding-icon-bottom: 5px;
+$font-size-base: 1.2rem;
 $colors: ( primary: #488aff, secondary: #32db64, danger: #f53d3d, start: #059664, light: #f4f4f4, dark: #222, transparent: transparent, gray: #a59f9f, );
-$menu-width: 180px;
+$menu-width: 150px;
 @import "ionic.theme.default";
 @import "ionic.ionicons";
 @import "roboto";
@@ -31,5 +31,5 @@ ion-app {
 }
 
 .item-block {
-    min-height: 3.2rem !important;
+    min-height: 3.5rem !important;
 }

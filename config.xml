@@ -15,7 +15,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
@@ -82,35 +82,20 @@
     </platform>
     <allow-navigation href="http://192.168.1.107:8100" />
     <allow-navigation href="http://192.168.1.107:8101" />
-    <engine name="android" spec="7.1.0" />
     <plugin name="cordova-plugin-device" spec="^2.0.1" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <plugin name="cordova-plugin-zeroconf" spec="^1.3.1" />
-    <plugin name="cordova-sms-plugin" spec="^0.1.11" />
-    <plugin name="cordova-sqlite-storage" spec="^2.3.0" />
-    <plugin name="cordova-plugin-baidumaplocation" spec="^3.2.0">
-        <variable name="ANDROID_KEY" value="pALGl86Gqboa8s9rd4p6GVuXm1TQ4b2g" />
-        <variable name="IOS_KEY" value="pALGl86Gqboa8s9rd4p6GVuXm1TQ4b2g" />
-        <variable name="IOS_LOCATION_DESC" value="请点击'好'以允许访问。" />
-    </plugin>
-    <plugin name="cordova-plugin-camera-preview" spec="^0.9.0" />
-    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
-    <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
-    <plugin name="cordova-plugin-add-swift-support" spec="^1.7.1" />
     <plugin name="cordova-plugin-device-motion" spec="^1.2.5" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
-    <plugin name="cordova-plugin-qqsdk" spec="^0.9.7">
-        <variable name="QQ_APP_ID" value="1106539177" />
-    </plugin>
-    <plugin name="cordova-plugin-qrscanner" spec="^2.5.0" />
-    <plugin name="cordova-plugin-shake" spec="^0.6.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <plugin name="cordova-plugin-stepcounter" spec="^1.0.1" />
     <plugin name="cordova-plugin-tts" spec="^0.2.3" />
     <plugin name="cordova-plugin-uniquedeviceid" spec="^1.3.2" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-sms-plugin" spec="^0.1.11" />
+    <engine name="android" spec="7.1.0" />
+    <plugin name="cordova-plugin-camera-preview" spec="^0.9.0" />
 </widget>
